@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translator</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="js/script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[url('/assets/hero_img.jpg')] text-white bg-no-repeat bg-contain min-h-screen bg-top bg-[#040711] px-6 flex items-center justify-center">
+
+  <div class="flex flex-col gap-4 w-full max-w-xl">
+
+    <div class="bg-[#212936cc]/80 p-5 rounded-xl border border-[#4D5562]">
+
+      <div class="pb-3 border-b border-[#4D5562] text-[#F9FAFB] font-bold text-[12px] flex gap-2.5" id="from">
+        <button class="py-1.5 px-2.5 rounded-xl bg-[#4D5562] active hover:bg-[#4D5562] duration-200" data-name="english">English</button>
+        <button class="py-1.5 px-2.5 rounded-xl hover:bg-[#4D5562] duration-200" data-name="french">French</button>
+        
+        <div class="relative group">
+          <button class="py-1.5 px-2.5 rounded-xl"><span>Spanish</span> <i class="fas fa-chevron-down text-[10px] ml-[2px]"></i></button>
+          <div class="absolute bg-[#4D5562] w-[120px] rounded-lg top-1/1 translate-y-[10px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 duration-200 flex flex-col py-1">
+            <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="spanish">Spanish</button>
+            <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="italian">Italian</button>
+            <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="dutch">Dutch</button>
+            <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="persian">Persian</button>
+          </div>
+          
+        </div>
+      </div>
+
+      <textarea class="my-5 bg-transparent resize-none overflow-hidden p-0 w-full min-h-20 text-sm border-none outline-none" id="user_input" maxlength="500" placeholder=""></textarea>
+
+      <div class="flex items-end justify-between">
+
+        <div class="flex gap-2">
+          <button class="border-2 border-[#4D5562] rounded-lg p-1 hover:bg-[#040711] hover:border-[#040711] duration-200">
+            <img src="assets/sound_max_fill.svg">
+          </button>          
+          <button class="border-2 border-[#4D5562] rounded-lg p-1 hover:bg-[#040711] hover:border-[#040711] duration-200 copy input-copy">
+            <img src="assets/Copy.svg">
+          </button>          
+        </div>
+
+        <div>
+          <p class="text-[#CDD5E0] text-[10px] text-right mb-2 " id="length_text">0/500</p>
+          <button class="text-sm bg-[#3662E3] border border-[#7CA9F3] py-2 px-4 rounded-lg flex gap-1 items-center disabled:opacity-40" id="translate_btn" disabled="true"><img src="assets/Sort_alfa.svg" class="w-[20px] h-[20px]"> Translate</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="bg-[#121826cc] p-5 rounded-xl border border-[#4D5562]">
+
+      <div class="flex items-center justify-between pb-3 border-b border-[#4D5562]">
+        <div class=" text-[#F9FAFB] font-bold text-[12px] flex gap-2.5" id="to">
+          <button class="py-1.5 px-2.5 rounded-xl opacity-50" disabled="true" data-name="english">English</button>
+          <button class="py-1.5 px-2.5 rounded-xl hover:bg-[#4D5562] bg-[#4D5562] active" data-name="french">French</button>
+          <div class="relative group">
+            <button class="py-1.5 px-2.5 rounded-xl"><span>Spanish</span> <i class="fas fa-chevron-down text-[10px] ml-[2px]"></i></button>
+            <div class="absolute bg-[#4D5562] w-[120px] rounded-lg top-1/1 translate-y-[10px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 duration-200 flex flex-col py-1">
+              <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="spanish">Spanish</button>
+              <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="italian">Italian</button>
+              <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="dutch">Dutch</button>
+              <button class="text-left py-2 px-3 hover:bg-[#212936cc] duration-200" data-name="persian">Persian</button>
+            </div>
+            
+          </div>
+        </div>
+        <button class="border-2 border-[#4D5562] rounded-lg p-1 hover:bg-[#040711] hover:border-[#040711] duration-200"><img src="assets/Horizontal_top_left_main.svg"></button>
+      </div>
+      <div class="my-5 w-full min-h-20 text-sm h-auto" id="output" readonly></div>
+
+      <div class="flex gap-2">
+        <button class="border-2 border-[#4D5562] rounded-lg p-1 hover:bg-[#040711] hover:border-[#040711] duration-200">
+          <img src="assets/sound_max_fill.svg">
+        </button>          
+        <button class="border-2 border-[#4D5562] rounded-lg p-1 hover:bg-[#040711] hover:border-[#040711] duration-200 copy output-copy">
+          <img src="assets/Copy.svg">
+        </button>          
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
