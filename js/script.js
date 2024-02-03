@@ -119,3 +119,7 @@ async function renderDefaultTranslation() {
 }
 
 renderDefaultTranslation();
+
+window.addEventListener('resize', (e) => {
+  console.log(e);
+});
